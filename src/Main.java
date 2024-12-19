@@ -48,6 +48,12 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Opção 3: Realizar empréstimo");
+                    System.out.println("Digite o ISBN: ");
+                    String isbn1 = sc.nextLine();
+                    System.out.println("Digite o id do usuario:");
+                    int id2 = sc.nextInt();
+                    sc.nextLine();
+                    biblioteca.realizarEmprestimos(isbn1,id2);
                     break;
                 case 4:
                     System.out.println("Opção 4: Realizar devolução");

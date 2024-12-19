@@ -1,6 +1,6 @@
 package SistemaBiblioteca;
 
-public class Livro  {
+public class Livro {
 
     private String titulo;
     private String autor;
@@ -14,21 +14,30 @@ public class Livro  {
         this.disponivel = disponivel;
     }
 
-    public void exibirDetlhes(){
+    public void exibirDetlhes() {
         System.out.println(titulo);
         System.out.println(autor);
         System.out.println(isbn);
         System.out.println(disponivel);
     }
 
-    public void emprestar(){
+    public void emprestar() {
         disponivel = true;
     }
 
-    public void devolver(){
+    public void devolver() {
         disponivel = false;
     }
 
+    public Object getIsbn() {
+        return isbn;
+    }
 
+    public boolean isDisponivel() {
+        return disponivel;
+    }
 
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
 }

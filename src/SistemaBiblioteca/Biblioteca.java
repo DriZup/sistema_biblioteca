@@ -20,5 +20,23 @@ public   class Biblioteca {
         usuarios.add(usuario);
     }
 
-
+    public boolean realizarEmprestimos(String isbn, int id) {
+        for (Livro livro : livros) {
+            if (livro.getIsbn().equals(isbn) && livro.isDisponivel()) {
+                for (Usuario usuario : usuarios) {
+                    if (usuario.getId() == id) {
+                        livro.setDisponivel(false);
+                        usuario.adicionarLivro(livro);
+                        System.out.println("Empréstimo realizado com sucesso!");
+                        return true;
+                    }
+                }
+                System.out.println("Usuário não encontrado.");
+                return false;
+            }
+        }
+        System.out.println("Livro não encontrado ou não está disponível.");
+        return false;
+    }
 }
+
