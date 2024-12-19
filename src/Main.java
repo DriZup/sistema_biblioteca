@@ -1,7 +1,13 @@
+import SistemaBiblioteca.Biblioteca;
+import SistemaBiblioteca.Livro;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        Biblioteca biblioteca = new Biblioteca();
+
 
         Scanner sc = new Scanner(System.in);
         int opcao;
@@ -21,6 +27,14 @@ public class Main {
             switch (opcao) {
                 case 1:
                     System.out.println("Opção 1:Cadastrar livro");
+                    System.out.println("Digite o titulo: ");
+                    String titulo = sc.nextLine();
+                    System.out.println("Digite o autor: ");
+                    String autor = sc.nextLine();
+                    System.out.println("Digite o isbn: ");
+                    String isbn = sc.nextLine();
+                    Livro livro1 = new Livro(titulo,autor,isbn,true);
+                    biblioteca.cadastrarLivro(livro1);
                     break;
                 case 2:
                     System.out.println("Opção 2: Cadastrar usuario");
