@@ -8,4 +8,10 @@ public class Usuario  {
     private String nome;
     private ArrayList<Livro>livrosEmprestados;
 
+
+
+    public Usuario(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 }

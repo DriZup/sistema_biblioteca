@@ -16,5 +16,9 @@ public   class Biblioteca {
         livros.add(livro);
     }
 
+    public void cadastrarUsuario(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+
 
 }

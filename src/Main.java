@@ -1,5 +1,6 @@
 import SistemaBiblioteca.Biblioteca;
 import SistemaBiblioteca.Livro;
+import SistemaBiblioteca.Usuario;
 
 import java.util.Scanner;
 
@@ -38,6 +39,12 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Opção 2: Cadastrar usuario");
+                    System.out.println("Digite o Nome: ");
+                    String nome = sc.nextLine();
+                    System.out.println("Digite o id do usuario: ");
+                    int id = sc.nextInt();
+                    Usuario usuario = new Usuario(id,nome);
+                    biblioteca.cadastrarUsuario(usuario);
                     break;
                 case 3:
                     System.out.println("Opção 3: Realizar empréstimo");
