@@ -20,23 +20,36 @@ public   class Biblioteca {
         usuarios.add(usuario);
     }
 
-    public boolean realizarEmprestimos(String isbn, int id) {
-        for (Livro livro : livros) {
-            if (livro.getIsbn().equals(isbn) && livro.isDisponivel()) {
-                for (Usuario usuario : usuarios) {
-                    if (usuario.getId() == id) {
-                        livro.setDisponivel(false);
-                        usuario.adicionarLivro(livro);
-                        System.out.println("Empréstimo realizado com sucesso!");
-                        return true;
-                    }
-                }
-                System.out.println("Usuário não encontrado.");
-                return false;
+    public void realizarEmprestimos(String isbn, int id) {
+        Livro livro = buscarLivroPorIsbn(isbn);
+        Usuario usuario = buscarUsuarioPorId(id);
+        if (livro != null && usuario != null) {
+            if (livro.isDisponivel() && usuario.podePegarMaisLivros()) {
+                livro.emprestar();
+                usuario.adicionarLivro(livro);
+                System.out.println("Emprestado com sucesso!");
+            } else {
+                System.out.println("Emprestimo não realizado!");
             }
+        } else {
+            System.out.println("Usuario não cadastrado!");
         }
-        System.out.println("Livro não encontrado ou não está disponível.");
-        return false;
+    }
+
+    private Usuario buscarUsuarioPorId(int id) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getId() == id) {
+                return usuario;
+            }
+        }return null;
+    }
+
+    private Livro buscarLivroPorIsbn(String isbn) {
+        for (Livro livro : livros) {
+            if (livro.getIsbn().equals(isbn)) {
+                return livro;
+            }
+        }return null;
     }
 }
 
