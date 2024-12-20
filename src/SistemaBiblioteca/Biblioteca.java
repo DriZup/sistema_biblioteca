@@ -36,6 +36,23 @@ public   class Biblioteca {
         }
     }
 
+    public void realizarDevolucao(String isbn, int id) {
+        Livro livro = buscarLivroPorIsbn(isbn);
+        Usuario usuario = buscarUsuarioPorId(id);
+        if (livro != null && usuario != null) {
+            if(usuario.livrosEmprestados.contains(livro)){
+                livro.devolver();
+                usuario.removerLivro(livro);
+                System.out.println("Devolução realizada com sucesso!");
+            } else {
+                System.out.println("Este livro não foi empçrestado para você.");
+            }
+        } else {
+            System.out.println("Livro e usuario não encontrado!");
+        }
+    }
+
+
     private Usuario buscarUsuarioPorId(int id) {
         for (Usuario usuario : usuarios) {
             if (usuario.getId() == id) {

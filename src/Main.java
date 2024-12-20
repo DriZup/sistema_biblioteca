@@ -57,6 +57,12 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Opção 4: Realizar devolução");
+                    System.out.println("Digite o ISBN: ");
+                    String isbn3 = sc.nextLine();
+                    System.out.println("Digite o id do usuario:");
+                    int id3 = sc.nextInt();
+                    sc.nextLine();
+                    biblioteca.realizarDevolucao(isbn3,id3);
                     break;
                 case 5:
                     System.out.println("Opção 5: Exibir livros disponiveis");
