@@ -14,15 +14,15 @@ public class Usuario  {
     public Usuario(int id, String nome) {
         this.id = id;
         this.nome = nome;
+        this.livrosEmprestados = new ArrayList<>();
     }
 
     public int getId() {
         return id;
     }
 
-    public void exibirDetalhe(){
-        System.out.println("ID: " + this.id);
-        System.out.println("Nome: " + this.nome);
+    public void exibirDetalhes(){
+        System.out.println("Nome: " + nome + ", ID: " + id + ", Livros emprestados: " + livrosEmprestados.size());
     }
 
     public  void adicionarLivro(Livro livro){
@@ -34,6 +34,10 @@ public class Usuario  {
     }
 
     public boolean podePegarMaisLivros() {
-        return this.livrosEmprestados.size() > 0;
+        return livrosEmprestados.size() < 3;
+    }
+
+    public ArrayList<Livro> getLivrosEmprestados() {
+        return livrosEmprestados;
     }
 }

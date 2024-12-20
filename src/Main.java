@@ -66,6 +66,7 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Opção 5: Exibir livros disponiveis");
+                    biblioteca.exibirLivrosDisponiveis();
                     break;
                 case 6:
                     System.out.println("Saindo do sistema. Até logo!");

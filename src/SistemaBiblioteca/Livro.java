@@ -7,37 +7,31 @@ public class Livro {
     private String isbn;
     private boolean disponivel;
 
+    public String getIsbn() {
+        return isbn;
+    }
+
     public Livro(String titulo, String autor, String isbn, boolean disponivel) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
-        this.disponivel = disponivel;
+        this.disponivel = true;
     }
 
     public void exibirDetlhes() {
-        System.out.println(titulo);
-        System.out.println(autor);
-        System.out.println(isbn);
-        System.out.println(disponivel);
+        System.out.println("Título: " + titulo + ", Autor: " + autor + ", ISBN: " + isbn + ", Disponível: " + disponivel);
     }
 
     public void emprestar() {
-        disponivel = true;
-    }
-
-    public void devolver() {
         disponivel = false;
     }
 
-    public Object getIsbn() {
-        return isbn;
+    public void devolver() {
+        disponivel = true;
     }
 
     public boolean isDisponivel() {
         return disponivel;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
 }
